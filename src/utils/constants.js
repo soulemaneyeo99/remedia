@@ -1,59 +1,56 @@
-// utils/constants.js
-// Système de Feature Flags pour REMÈDIA
-// Permet d'activer/désactiver certaines fonctionnalités facilement
+// ─────────────────────────────────────────────
+// REMÉDIA – Configuration centralisée
+// Inclut : Feature Flags, Configuration UI, Statuts Plantes
+// ─────────────────────────────────────────────
 
+/**
+ * Feature Flags — Activer/Désactiver dynamiquement des modules
+ */
 export const FEATURE_FLAGS = {
-  // Commerce électronique
-  ECOMMERCE_ENABLED: true,
-  
-  // Chatbot IA simulé
-  CHATBOT_ENABLED: true,
-  
-  // Géolocalisation des plantes
-  GEOLOCATION_ENABLED: true,
-  
-  // Carte interactive
-  MAP_ENABLED: true,
-  
-  // Mode développement (affiche des infos debug)
-  DEV_MODE: false,
-  
-  // Simulation de scan de plantes
-  PLANT_SCAN_ENABLED: true,
-  
-  // Notifications push simulées
-  NOTIFICATIONS_ENABLED: true,
-  
-  // Mode hors ligne
-  OFFLINE_MODE: false
+  ECOMMERCE_ENABLED: true,         // Activer le module e-commerce
+  CHATBOT_ENABLED: true,           // Activer le chatbot IA
+  GEOLOCATION_ENABLED: true,       // Afficher la géolocalisation des plantes
+  MAP_ENABLED: true,               // Activer la carte interactive
+  DEV_MODE: false,                 // Mode debug : infos console et helpers
+  PLANT_SCAN_ENABLED: true,        // Activer la simulation de scan
+  NOTIFICATIONS_ENABLED: true,     // Notifications push simulées
+  OFFLINE_MODE: false              // Activer mode hors-ligne
 };
 
-// Fonction utilitaire pour vérifier un feature flag
-export const isFeatureEnabled = (featureName) => {
-  return FEATURE_FLAGS[featureName] || false;
+/**
+ * Vérifie si une fonctionnalité est activée.
+ * @param {string} flagName - Nom exact du flag
+ * @returns {boolean}
+ */
+export const isFeatureEnabled = (flagName) => {
+  return Boolean(FEATURE_FLAGS[flagName]);
 };
 
-// Constantes pour l'application
+/**
+ * Configuration générale de l'application
+ */
 export const APP_CONFIG = {
-  // Délais de simulation
+  // Délais simulés pour l’UX
   TYPING_DELAY: 1500,
   SCAN_DELAY: 2000,
   API_DELAY: 800,
-  
-  // Configuration UI
+
+  // UI & UX
   ANIMATION_DURATION: 300,
   TOAST_DURATION: 3000,
-  
-  // Limites
+
+  // Limites & Sécurité
   MAX_CHAT_MESSAGES: 50,
   MAX_SCAN_RESULTS: 5,
-  
-  // URLs de base (pour le futur)
+
+  // Endpoints (à adapter selon l’environnement)
   API_BASE_URL: 'https://api.remedia.com',
   CDN_URL: 'https://cdn.remedia.com'
 };
 
-// Statuts de conservation des plantes
+/**
+ * Statuts de conservation des plantes — Données IUCN simulées
+ */
 export const CONSERVATION_STATUS = {
   SAFE: {
     label: 'Cultivable durablement',
