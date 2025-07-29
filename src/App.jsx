@@ -5,7 +5,8 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import LoadingSkeleton from './components/LoadingSkeleton';
 import { isFeatureEnabled } from './utils/constants';
-
+import ObservationForm from './pages/ObservationForm';
+import ObservationsMap from './pages/ObservationsMap';
 // Lazy loading des pages pour améliorer les performances initiales
 const Home = lazy(() => import('./pages/Home'));
 const Scan = lazy(() => import('./pages/Scan'));
@@ -33,7 +34,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/scan" element={<Scan />} />
             <Route path="/plant/:id" element={<PlantDetail />} />
-
+          <Route path="/observation-form" element={<ObservationForm />} />
+          <Route path="/observations-map" element={<ObservationsMap />} />
             {/* Pages conditionnelles basées sur les fonctionnalités activées */}
             {isFeatureEnabled('CHATBOT_ENABLED') && (
               <Route path="/chatbot" element={<Chatbot />} />

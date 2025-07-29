@@ -1,4 +1,5 @@
 // src/data/plantes.json
+
 {
   "plantes": [
     {
@@ -154,47 +155,3 @@
   ]
 }
 
-// src/data/chatResponses.json
-{
-  "responses": [
-    {
-      "keywords": ["bonjour", "salut", "hello"],
-      "response": "Bonjour ! Je suis votre assistant REMÈDIA spécialisé en médecine traditionnelle africaine. Comment puis-je vous aider aujourd'hui ?",
-      "suggestions": ["Propriétés des plantes", "Préparations traditionnelles", "Précautions d'usage"]
-    },
-    {
-      "keywords": ["aloe", "aloé", "cicatrisant"],
-      "response": "L'Aloe Vera est excellente pour la cicatrisation ! Son gel contient des polysaccharides qui accélèrent la guérison. Appliquez le gel frais directement sur la plaie propre, 2-3 fois par jour.",
-      "suggestions": ["Autres plantes cicatrisantes", "Préparation de l'Aloe", "Précautions d'usage"]
-    },
-    {
-      "keywords": ["moringa", "vitamines", "nutrition"],
-      "response": "Le Moringa est un super-aliment ! Ses feuilles contiennent plus de vitamine C que les oranges et autant de protéines que les œufs. Consommez 1 cuillère à café de poudre par jour.",
-      "suggestions": ["Recettes avec Moringa", "Autres plantes nutritives", "Dosage recommandé"]
-    },
-    {
-      "keywords": ["baobab", "vitamine c", "immunité"],
-      "response": "Le fruit de Baobab est 6 fois plus riche en vitamine C que l'orange ! Parfait pour renforcer l'immunité. Mélangez 2 cuillères de pulpe dans un verre d'eau fraîche.",
-      "suggestions": ["Autres plantes immunisantes", "Préparation du jus", "Bienfaits du Baobab"]
-    },
-    {
-      "keywords": ["brûlure", "blessure", "plaie"],
-      "response": "Pour les brûlures légères, l'Aloe Vera est votre meilleur allié ! Nettoyez la zone, appliquez le gel frais et renouvelez plusieurs fois. En cas de brûlure grave, consultez un médecin.",
-      "suggestions": ["Premiers secours naturels", "Autres plantes cicatrisantes", "Quand consulter un médecin"]
-    },
-    {
-      "keywords": ["grossesse", "enceinte", "femme enceinte"],
-      "response": "Attention ! Certaines plantes sont déconseillées pendant la grossesse. Évitez l'Aloe Vera par voie orale et les racines de Moringa. Consultez toujours un professionnel de santé.",
-      "suggestions": ["Plantes sûres enceinte", "Précautions importantes", "Consultation médicale"]
-    },
-    {
-      "keywords": ["enfant", "bébé", "enfants"],
-      "response": "Pour les enfants, privilégiez des doses réduites et des applications externes. Le Moringa en petite quantité et le Baobab sont généralement sûrs. Demandez conseil à votre pédiatre.",
-      "suggestions": ["Dosage enfants", "Plantes sûres", "Précautions pédiatriques"]
-    }
-  ],
-  "defaultResponse": {
-    "response": "Merci pour votre question sur la médecine traditionnelle africaine. Bien que je ne puisse pas traiter tous les cas spécifiques, je vous encourage à consulter notre base de plantes ou un professionnel de santé qualifié.",
-    "suggestions": ["Explorer les plantes", "Scanner une plante", "Consulter un expert"]
-  }
-}

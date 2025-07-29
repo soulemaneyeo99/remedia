@@ -1,9 +1,9 @@
 import { useState, useRef } from 'react';
-import { Camera, Upload, X, Zap, AlertCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Camera, Upload, X, Zap, AlertCircle, Leaf, MapPin, Eye } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
 /**
- * Page Scan - Scanner de plantes avec IA simulée
+ * Page Scan - Scanner de plantes avec IA simulée + Observation écologique
  * 
  * Features :
  * - Prise de photo via caméra
@@ -11,38 +11,48 @@ import { Link } from 'react-router-dom';
  * - Simulation de reconnaissance IA
  * - Résultats avec suggestions de plantes
  * - Preview de l'image scannée
+ * - NOUVEAU : Option d'observation écologique post-identification
  */
 function Scan() {
+  const navigate = useNavigate();
   const [isScanning, setIsScanning] = useState(false);
   const [scanResult, setScanResult] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [showObservationOption, setShowObservationOption] = useState(false);
+  const [selectedPlant, setSelectedPlant] = useState(null);
   const fileInputRef = useRef(null);
 
-  // Résultats simulés de reconnaissance
+  // Résultats simulés de reconnaissance (format adapté pour ObservationForm)
   const mockResults = [
     {
-      id: 1,
+      id: "moringa",
       nom: "Moringa",
-      nomScientifique: "Moringa oleifera",
+      nom_scientifique: "Moringa oleifera",
       confidence: 94,
       image: "https://images.unsplash.com/photo-1609501676725-7186f734457d?w=200&h=200&fit=crop",
-      description: "Arbre aux multiples vertus nutritionnelles"
+      description: "Arbre aux multiples vertus nutritionnelles",
+      usages: ["Nutrition", "Purification de l'eau", "Anti-inflammatoire"],
+      region: "Sahel, Afrique de l'Ouest"
     },
     {
-      id: 2,
+      id: "kinkeliba",
       nom: "Kinkeliba",
-      nomScientifique: "Combretum micranthum",
+      nom_scientifique: "Combretum micranthum",
       confidence: 78,
       image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=200&fit=crop",
-      description: "Plante détoxifiante du Sahel"
+      description: "Plante détoxifiante du Sahel",
+      usages: ["Détoxification", "Digestion", "Fièvre"],
+      region: "Sahel"
     },
     {
-      id: 3,
+      id: "bissap",
       nom: "Bissap",
-      nomScientifique: "Hibiscus sabdariffa",
+      nom_scientifique: "Hibiscus sabdariffa",
       confidence: 65,
       image: "https://images.unsplash.com/photo-1563789031959-4c02c4441797?w=200&h=200&fit=crop",
-      description: "Fleur aux propriétés antioxydantes"
+      description: "Fleur aux propriétés antioxydantes",
+      usages: ["Antioxydant", "Hypertension", "Rafraîchissant"],
+      region: "Afrique tropicale"
     }
   ];
 
@@ -58,6 +68,11 @@ function Scan() {
     setTimeout(() => {
       setIsScanning(false);
       setScanResult(mockResults);
+      // Proposer automatiquement l'observation pour le résultat le plus confiant
+      setTimeout(() => {
+        setSelectedPlant(mockResults[0]);
+        setShowObservationOption(true);
+      }, 1500);
     }, 3000);
   };
 
@@ -73,16 +88,34 @@ function Scan() {
         setTimeout(() => {
           setIsScanning(false);
           setScanResult(mockResults);
+          // Proposer l'observation après identification
+          setTimeout(() => {
+            setSelectedPlant(mockResults[0]);
+            setShowObservationOption(true);
+          }, 1000);
         }, 2000);
       };
       reader.readAsDataURL(file);
     }
   };
 
+  const handlePlantSelect = (plant) => {
+    setSelectedPlant(plant);
+    setShowObservationOption(true);
+  };
+
+  const goToObservation = () => {
+    navigate('/observation-form', {
+      state: { plant: selectedPlant }
+    });
+  };
+
   const resetScan = () => {
     setSelectedImage(null);
     setScanResult(null);
     setIsScanning(false);
+    setShowObservationOption(false);
+    setSelectedPlant(null);
   };
 
   return (
@@ -136,7 +169,7 @@ function Scan() {
               </div>
 
               {/* Conseils */}
-              <div className="bg-blue-50 rounded-lg p-6">
+              <div className="bg-blue-50 rounded-lg p-6 mb-6">
                 <h3 className="text-lg font-semibold text-blue-900 mb-3">
                   Conseils pour un meilleur scan
                 </h3>
@@ -145,6 +178,23 @@ function Scan() {
                   <div>• Feuilles et fleurs visibles</div>
                   <div>• Distance de 20-30 cm</div>
                 </div>
+              </div>
+
+              {/* Nouveau : CTA pour la carte collaborative */}
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
+                <div className="flex items-center justify-center space-x-2 mb-2">
+                  <MapPin className="h-5 w-5 text-emerald-600" />
+                  <span className="font-medium text-emerald-800">Nouveau !</span>
+                </div>
+                <p className="text-sm text-emerald-700 mb-3">
+                  Après identification, contribuez à la préservation en partageant votre observation !
+                </p>
+                <button
+                  onClick={() => navigate('/observations-map')}
+                  className="text-emerald-600 hover:text-emerald-700 text-sm font-medium"
+                >
+                  🗺️ Voir la carte collaborative →
+                </button>
               </div>
             </div>
           </div>
@@ -196,10 +246,9 @@ function Scan() {
                       </h3>
                       
                       {scanResult.map((result) => (
-                        <Link
+                        <div
                           key={result.id}
-                          to={`/plant/${result.id}`}
-                          className="block p-4 border border-gray-200 rounded-lg hover:border-green-300 hover:shadow-md transition-all"
+                          className="p-4 border border-gray-200 rounded-lg hover:border-green-300 hover:shadow-md transition-all"
                         >
                           <div className="flex items-center space-x-4">
                             <img
@@ -208,7 +257,7 @@ function Scan() {
                               className="w-16 h-16 object-cover rounded-lg"
                             />
                             <div className="flex-1">
-                              <div className="flex items-center justify-between">
+                              <div className="flex items-center justify-between mb-2">
                                 <h4 className="font-semibold text-gray-900">
                                   {result.nom}
                                 </h4>
@@ -222,15 +271,33 @@ function Scan() {
                                   {result.confidence}%
                                 </div>
                               </div>
-                              <p className="text-sm text-gray-600 italic">
-                                {result.nomScientifique}
+                              <p className="text-sm text-gray-600 italic mb-1">
+                                {result.nom_scientifique}
                               </p>
-                              <p className="text-sm text-gray-700 mt-1">
+                              <p className="text-sm text-gray-700 mb-2">
                                 {result.description}
                               </p>
+                              
+                              {/* Actions */}
+                              <div className="flex space-x-2">
+                                <Link
+                                  to={`/plant/${result.id}`}
+                                  className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-lg hover:bg-blue-200 transition-colors"
+                                >
+                                  <Eye className="w-3 h-3 mr-1" />
+                                  Détails
+                                </Link>
+                                <button
+                                  onClick={() => handlePlantSelect(result)}
+                                  className="inline-flex items-center px-3 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-lg hover:bg-green-200 transition-colors"
+                                >
+                                  <Leaf className="w-3 h-3 mr-1" />
+                                  Observer
+                                </button>
+                              </div>
                             </div>
                           </div>
-                        </Link>
+                        </div>
                       ))}
 
                       {/* Avertissement */}
@@ -256,6 +323,88 @@ function Scan() {
           </div>
         )}
       </div>
+
+      {/* Modal d'observation écologique */}
+      {showObservationOption && selectedPlant && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl p-6 max-w-sm w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Leaf className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                Plante identifiée ! 🌿
+              </h3>
+              
+              <div className="flex items-center space-x-3 p-3 bg-emerald-50 rounded-lg mb-4">
+                <img 
+                  src={selectedPlant.image} 
+                  alt={selectedPlant.nom}
+                  className="w-12 h-12 rounded-lg object-cover"
+                />
+                <div className="text-left">
+                  <p className="font-semibold text-gray-800">{selectedPlant.nom}</p>
+                  <p className="text-sm text-gray-600">{selectedPlant.nom_scientifique}</p>
+                  <div className="flex items-center mt-1">
+                    <div className={`px-2 py-0.5 rounded-full text-xs font-medium ${
+                      selectedPlant.confidence >= 90 
+                        ? 'bg-green-100 text-green-700'
+                        : 'bg-yellow-100 text-yellow-700'
+                    }`}>
+                      {selectedPlant.confidence}% sûr
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-emerald-50 to-green-50 border border-emerald-200 p-4 rounded-lg mb-6">
+              <div className="flex items-start space-x-2">
+                <MapPin className="h-5 w-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-sm text-emerald-800 font-medium mb-1">
+                    Contribuez à la science participative !
+                  </p>
+                  <p className="text-xs text-emerald-700">
+                    Votre observation aide à cartographier et préserver les plantes médicinales africaines.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <button
+                onClick={goToObservation}
+                className="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition-colors font-medium flex items-center justify-center"
+              >
+                <MapPin className="mr-2" size={20} />
+                🌍 Partager mon observation
+              </button>
+              
+              <Link
+                to={`/plant/${selectedPlant.id}`}
+                className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors block text-center font-medium"
+              >
+                📖 Voir les détails complets
+              </Link>
+              
+              <button
+                onClick={() => setShowObservationOption(false)}
+                className="w-full bg-gray-200 text-gray-700 py-3 px-4 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+              >
+                Plus tard
+              </button>
+            </div>
+
+            {/* Info supplémentaire */}
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs text-gray-500 text-center">
+                💡 Votre observation restera anonyme et contribuera à la recherche écologique
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

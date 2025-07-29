@@ -1,0 +1,77 @@
+[
+  {
+    "id": "obs_ci_001",
+    "plantId": "baobab",
+    "plantName": "Baobab",
+    "coordinates": {
+      "lat": 8.0291,
+      "lng": -5.0415
+    },
+    "location": "Korhogo, Côte d’Ivoire",
+    "habitat": "savane",
+    "condition": "saine",
+    "comment": "Baobab isolé en pleine savane, en bonne santé.",
+    "timestamp": "2025-07-28T14:30:00Z",
+    "contributor": "EcoSentinelleCI01"
+  },
+  {
+    "id": "obs_ci_002",
+    "plantId": "moringa",
+    "plantName": "Moringa",
+    "coordinates": {
+      "lat": 5.3430,
+      "lng": -4.0273
+    },
+    "location": "Abidjan (Cocody), Côte d’Ivoire",
+    "habitat": "jardin_urbain",
+    "condition": "abondante",
+    "comment": "Cultivé dans un jardin communautaire. Bien entretenu.",
+    "timestamp": "2025-07-27T10:00:00Z",
+    "contributor": "PlanteurUrbainCI"
+  },
+  {
+    "id": "obs_ci_003",
+    "plantId": "aloe_vera",
+    "plantName": "Aloe Vera",
+    "coordinates": {
+      "lat": 7.6818,
+      "lng": -5.0303
+    },
+    "location": "Yamoussoukro, Côte d’Ivoire",
+    "habitat": "bord_route",
+    "condition": "endommagée",
+    "comment": "Feuilles coupées récemment. Risque de surexploitation.",
+    "timestamp": "2025-07-26T17:45:00Z",
+    "contributor": "EcoPatrouilleCI02"
+  },
+  {
+    "id": "obs_ci_004",
+    "plantId": "artemisia",
+    "plantName": "Artemisia",
+    "coordinates": {
+      "lat": 6.8976,
+      "lng": -6.4502
+    },
+    "location": "Daloa, Côte d’Ivoire",
+    "habitat": "champ_agricole",
+    "condition": "rare",
+    "comment": "Peu d’exemplaires repérés dans la zone. En voie de raréfaction.",
+    "timestamp": "2025-07-25T11:30:00Z",
+    "contributor": "ObservateurLocalCI"
+  },
+  {
+    "id": "obs_ci_005",
+    "plantId": "kinkeliba",
+    "plantName": "Kinkeliba",
+    "coordinates": {
+      "lat": 9.3833,
+      "lng": -5.6167
+    },
+    "location": "Odienné, Côte d’Ivoire",
+    "habitat": "forêt_sèche",
+    "condition": "saine",
+    "comment": "Présence naturelle dans les sous-bois. Plantation non nécessaire.",
+    "timestamp": "2025-07-24T08:20:00Z",
+    "contributor": "EcoGuardCI"
+  }
+]
