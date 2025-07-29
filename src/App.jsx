@@ -1,18 +1,21 @@
+import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import LoadingSkeleton from './components/LoadingSkeleton';
 import { isFeatureEnabled } from './utils/constants';
-import ObservationForm from './pages/ObservationForm';
-import ObservationsMap from './pages/ObservationsMap';
-// Lazy loading des pages pour améliorer les performances initiales
+
+// Lazy loading des pages
 const Home = lazy(() => import('./pages/Home'));
 const Scan = lazy(() => import('./pages/Scan'));
 const PlantDetail = lazy(() => import('./pages/PlantDetail'));
 const Chatbot = lazy(() => import('./pages/Chatbot'));
 const Shop = lazy(() => import('./pages/Shop'));
+const MissionRacines = lazy(() => import('./pages/MissionRacines'));
+
+const ObservationForm = lazy(() => import('./pages/ObservationForm'));
+const ObservationsMap = lazy(() => import('./pages/ObservationsMap'));
 
 /**
  * Composant principal de l'application REMÉDIA
@@ -20,23 +23,26 @@ const Shop = lazy(() => import('./pages/Shop'));
 function App() {
   return (
     <>
-      {/* Barre de navigation toujours présente */}
+      {/* Barre de navigation principale */}
       <Navbar />
 
-      {/* Remonte automatiquement en haut à chaque changement de route */}
+      {/* Scroll to top automatique à chaque navigation */}
       <ScrollToTop />
 
-      {/* Contenu principal avec gestion du lazy loading */}
+      {/* Contenu principal avec chargement différé */}
       <main className="min-h-screen bg-gray-50">
         <Suspense fallback={<LoadingSkeleton />}>
           <Routes>
-            {/* Pages toujours disponibles */}
+            {/* Routes principales */}
             <Route path="/" element={<Home />} />
             <Route path="/scan" element={<Scan />} />
             <Route path="/plant/:id" element={<PlantDetail />} />
-          <Route path="/observation-form" element={<ObservationForm />} />
-          <Route path="/observations-map" element={<ObservationsMap />} />
-            {/* Pages conditionnelles basées sur les fonctionnalités activées */}
+            
+            <Route path="/mission-racines" element={<MissionRacines />} />
+            <Route path="/observation-form" element={<ObservationForm />} />
+            <Route path="/observations-map" element={<ObservationsMap />} />
+
+            {/* Fonctionnalités conditionnelles */}
             {isFeatureEnabled('CHATBOT_ENABLED') && (
               <Route path="/chatbot" element={<Chatbot />} />
             )}
@@ -44,22 +50,22 @@ function App() {
               <Route path="/shop" element={<Shop />} />
             )}
 
-            {/* Fallback 404 - doit toujours être en dernier */}
-            <Route path="*" element={<NotFound />} />
+            {/* Route 404 */}
+            <Route path="*" element={<NotFoundComponent />} />
           </Routes>
         </Suspense>
       </main>
 
-      {/* Pied de page global */}
+      {/* Pied de page */}
       <Footer />
     </>
   );
 }
 
 /**
- * Page 404 – affiche un message d’erreur utilisateur avec navigation
+ * Page 404 personnalisée
  */
-function NotFound() {
+function NotFoundComponent() {
   return (
     <div className="min-h-[60vh] flex items-center justify-center px-4">
       <div className="text-center max-w-md">
@@ -121,7 +127,5 @@ function NotFound() {
     </div>
   );
 }
-
-
 
 export default App;

@@ -1,3 +1,5 @@
+// src/components/Navbar.jsx
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -8,33 +10,34 @@ import {
   MessageCircle,
   ShoppingBag,
   Home,
+  Sprout,
+  Map,
 } from 'lucide-react';
 
 /**
- * Composant Navbar
- *
- * ✅ Navbar responsive avec menu mobile animé
- * ✅ Indicateur de page active
- * ✅ Icône "NEW" possible pour certaines entrées (à activer dans navItems)
- * ✅ Design moderne avec Tailwind CSS
+ * Composant Navbar professionnel pour REMÈDIA 🌿
+ * - Design moderne et écologique
+ * - Routes contextuelles (Scanner, Boutique, Mission Racines, etc.)
+ * - Comportement mobile responsive
+ * - Bonnes pratiques avec Tailwind CSS
  */
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Liens de navigation
+  // Navigation principale
   const navItems = [
     { path: '/', label: 'Accueil', icon: Home },
     { path: '/scan', label: 'Scanner', icon: Scan },
     { path: '/chatbot', label: 'Assistant IA', icon: MessageCircle },
     { path: '/shop', label: 'Boutique', icon: ShoppingBag, isNew: true },
+    { path: '/mission-racines', label: 'Mission Racines', icon: Sprout },
+    
+    { path: '/observations-map', label: 'Carte Écologique', icon: Map },
   ];
 
-  // Vérifie si la route est active
   const isActive = (path) => location.pathname === path;
-
-  // Toggle menu mobile
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
@@ -75,7 +78,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Bouton menu mobile */}
+          {/* Bouton mobile */}
           <button
             onClick={toggleMenu}
             className="md:hidden p-2 rounded-lg text-gray-600 hover:text-primary-600 hover:bg-primary-50 transition-colors"
