@@ -1,13 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    
+    <!-- Favicon personnalisé (peut être remplacé par votre logo) -->
+    <link rel="icon" type="image/svg+xml" href="/leaf-icon.svg" />
+    
+    <!-- Meta tags SEO et social -->
+    <title>Remédia – L’intelligence verte</title>
+    <meta name="description" content="Découvrez les plantes médicinales ivoiriennes et contribuez à la préservation de notre biodiversité" />
+    <meta name="theme-color" content="#047857" />
+    
+    <!-- OpenGraph / Social Media -->
+    <meta property="og:title" content="REMÉDIA | Plantes médicinales de Côte d'Ivoire" />
+    <meta property="og:description" content="Plateforme dédiée à la botanique et médecine naturelle ivoirienne" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://remedia.ci" />
+    <meta property="og:image" content="https://remedia.ci/social-preview.jpg" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Préchargement des polices (optionnel) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles initiaux -->
+    <style>
+      body {
+        margin: 0;
+        background-color: #f8fafc;
+        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
   </head>
+  
   <body>
     <div id="root"></div>
+    
+    <!-- Chargement des scripts -->
     <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Google Analytics (optionnel) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
   </body>
 </html>
