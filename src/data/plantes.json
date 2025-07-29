@@ -1,0 +1,200 @@
+// src/data/plantes.json
+{
+  "plantes": [
+    {
+      "id": "aloe-vera",
+      "nom": "Aloe Vera",
+      "nomScientifique": "Aloe barbadensis miller",
+      "nomLocal": "Sabila (Wolof)",
+      "origine": "Afrique du Nord",
+      "image": "/api/placeholder/400/300",
+      "description": "Plante succulente aux propriétés cicatrisantes exceptionnelles, largement utilisée en médecine traditionnelle africaine.",
+      "proprietesMedicinales": [
+        "Cicatrisant naturel",
+        "Anti-inflammatoire",
+        "Hydratant cutané",
+        "Traitement des brûlures",
+        "Soulagement des irritations"
+      ],
+      "composantsChimiques": [
+        {
+          "nom": "Aloïne",
+          "concentration": "0.1-0.3%",
+          "effet": "Propriétés laxatives"
+        },
+        {
+          "nom": "Polysaccharides",
+          "concentration": "60-70%",
+          "effet": "Cicatrisation et hydratation"
+        },
+        {
+          "nom": "Anthraquinones",
+          "concentration": "1-2%",
+          "effet": "Anti-inflammatoire"
+        }
+      ],
+      "utilisationTraditionnelle": "Application directe du gel sur les plaies et brûlures. Préparation en décoction pour troubles digestifs.",
+      "precautions": [
+        "Éviter l'ingestion chez la femme enceinte",
+        "Peut causer des réactions allergiques chez certaines personnes",
+        "Usage externe recommandé pour les débutants"
+      ],
+      "temoignage": {
+        "auteur": "Fatou Diallo, guérisseuse traditionnelle",
+        "localisation": "Dakar, Sénégal",
+        "texte": "Depuis 30 ans, j'utilise l'Aloe Vera pour soigner les blessures de ma communauté. Cette plante miracle guérit là où la médecine moderne échoue parfois."
+      },
+      "preparation": [
+        "Couper une feuille mature",
+        "Extraire le gel transparent",
+        "Appliquer directement sur la zone affectée",
+        "Renouveler 2-3 fois par jour"
+      ]
+    },
+    {
+      "id": "moringa-oleifera",
+      "nom": "Moringa",
+      "nomScientifique": "Moringa oleifera",
+      "nomLocal": "Nébéday (Wolof)",
+      "origine": "Afrique de l'Ouest",
+      "image": "/api/placeholder/400/300",
+      "description": "Arbre miracle aux multiples vertus nutritionnelles et médicinales, surnommé 'l'arbre de vie'.",
+      "proprietesMedicinales": [
+        "Riche en vitamines A, C, E",
+        "Source de protéines complètes",
+        "Anti-oxydant puissant",
+        "Régulation de la glycémie",
+        "Renforcement immunitaire"
+      ],
+      "composantsChimiques": [
+        {
+          "nom": "Vitamine C",
+          "concentration": "220mg/100g",
+          "effet": "Antioxydant, immunité"
+        },
+        {
+          "nom": "Protéines",
+          "concentration": "27g/100g",
+          "effet": "Nutrition, récupération"
+        },
+        {
+          "nom": "Calcium",
+          "concentration": "440mg/100g",
+          "effet": "Solidité osseuse"
+        }
+      ],
+      "utilisationTraditionnelle": "Feuilles séchées en poudre, consommées dans les repas ou en tisane. Graines pour purification de l'eau.",
+      "precautions": [
+        "Consommation modérée recommandée",
+        "Éviter les racines pendant la grossesse",
+        "Peut interagir avec certains médicaments"
+      ],
+      "temoignage": {
+        "auteur": "Mamadou Traoré, agriculteur",
+        "localisation": "Bamako, Mali",
+        "texte": "Le Moringa nourrit ma famille depuis des générations. Mes enfants grandissent forts grâce à cette plante bénie."
+      },
+      "preparation": [
+        "Sécher les feuilles à l'ombre",
+        "Moudre en poudre fine",
+        "Mélanger 1 cuillère à café dans les repas",
+        "Ou infuser 10 minutes en tisane"
+      ]
+    },
+    {
+      "id": "baobab",
+      "nom": "Baobab",
+      "nomScientifique": "Adansonia digitata",
+      "nomLocal": "Goui (Bambara)",
+      "origine": "Afrique subsaharienne",
+      "image": "/api/placeholder/400/300",
+      "description": "Arbre sacré aux fruits riches en vitamine C, symbole de longévité et de résistance.",
+      "proprietesMedicinales": [
+        "Très riche en vitamine C",
+        "Propriétés probiotiques",
+        "Anti-diarrhéique naturel",
+        "Renforcement immunitaire",
+        "Régulation digestive"
+      ],
+      "composantsChimiques": [
+        {
+          "nom": "Vitamine C",
+          "concentration": "300mg/100g",
+          "effet": "6x plus que l'orange"
+        },
+        {
+          "nom": "Fibres",
+          "concentration": "45g/100g",
+          "effet": "Santé digestive"
+        },
+        {
+          "nom": "Potassium",
+          "concentration": "1240mg/100g",
+          "effet": "Équilibre électrolytique"
+        }
+      ],
+      "utilisationTraditionnelle": "Pulpe du fruit en boisson rafraîchissante. Feuilles en légume ou médecine contre la fièvre.",
+      "precautions": [
+        "Généralement sûr pour tous",
+        "Consommation excessive peut causer des troubles digestifs",
+        "Vérifier la qualité du produit"
+      ],
+      "temoignage": {
+        "auteur": "Aïcha Kone, mère de famille",
+        "localisation": "Ouagadougou, Burkina Faso",
+        "texte": "Le jus de baobab protège mes enfants des maladies. C'est notre vitamine naturelle depuis toujours."
+      },
+      "preparation": [
+        "Dissoudre la pulpe dans l'eau froide",
+        "Filtrer pour enlever les graines",
+        "Sucrer avec du miel si désiré",
+        "Consommer frais de préférence"
+      ]
+    }
+  ]
+}
+
+// src/data/chatResponses.json
+{
+  "responses": [
+    {
+      "keywords": ["bonjour", "salut", "hello"],
+      "response": "Bonjour ! Je suis votre assistant REMÈDIA spécialisé en médecine traditionnelle africaine. Comment puis-je vous aider aujourd'hui ?",
+      "suggestions": ["Propriétés des plantes", "Préparations traditionnelles", "Précautions d'usage"]
+    },
+    {
+      "keywords": ["aloe", "aloé", "cicatrisant"],
+      "response": "L'Aloe Vera est excellente pour la cicatrisation ! Son gel contient des polysaccharides qui accélèrent la guérison. Appliquez le gel frais directement sur la plaie propre, 2-3 fois par jour.",
+      "suggestions": ["Autres plantes cicatrisantes", "Préparation de l'Aloe", "Précautions d'usage"]
+    },
+    {
+      "keywords": ["moringa", "vitamines", "nutrition"],
+      "response": "Le Moringa est un super-aliment ! Ses feuilles contiennent plus de vitamine C que les oranges et autant de protéines que les œufs. Consommez 1 cuillère à café de poudre par jour.",
+      "suggestions": ["Recettes avec Moringa", "Autres plantes nutritives", "Dosage recommandé"]
+    },
+    {
+      "keywords": ["baobab", "vitamine c", "immunité"],
+      "response": "Le fruit de Baobab est 6 fois plus riche en vitamine C que l'orange ! Parfait pour renforcer l'immunité. Mélangez 2 cuillères de pulpe dans un verre d'eau fraîche.",
+      "suggestions": ["Autres plantes immunisantes", "Préparation du jus", "Bienfaits du Baobab"]
+    },
+    {
+      "keywords": ["brûlure", "blessure", "plaie"],
+      "response": "Pour les brûlures légères, l'Aloe Vera est votre meilleur allié ! Nettoyez la zone, appliquez le gel frais et renouvelez plusieurs fois. En cas de brûlure grave, consultez un médecin.",
+      "suggestions": ["Premiers secours naturels", "Autres plantes cicatrisantes", "Quand consulter un médecin"]
+    },
+    {
+      "keywords": ["grossesse", "enceinte", "femme enceinte"],
+      "response": "Attention ! Certaines plantes sont déconseillées pendant la grossesse. Évitez l'Aloe Vera par voie orale et les racines de Moringa. Consultez toujours un professionnel de santé.",
+      "suggestions": ["Plantes sûres enceinte", "Précautions importantes", "Consultation médicale"]
+    },
+    {
+      "keywords": ["enfant", "bébé", "enfants"],
+      "response": "Pour les enfants, privilégiez des doses réduites et des applications externes. Le Moringa en petite quantité et le Baobab sont généralement sûrs. Demandez conseil à votre pédiatre.",
+      "suggestions": ["Dosage enfants", "Plantes sûres", "Précautions pédiatriques"]
+    }
+  ],
+  "defaultResponse": {
+    "response": "Merci pour votre question sur la médecine traditionnelle africaine. Bien que je ne puisse pas traiter tous les cas spécifiques, je vous encourage à consulter notre base de plantes ou un professionnel de santé qualifié.",
+    "suggestions": ["Explorer les plantes", "Scanner une plante", "Consulter un expert"]
+  }
+}

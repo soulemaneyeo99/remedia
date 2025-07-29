@@ -1,0 +1,42 @@
+// src/data/chatResponses.json
+{
+  "responses": [
+    {
+      "keywords": ["bonjour", "salut", "hello"],
+      "response": "Bonjour ! Je suis votre assistant spécialisé en médecine traditionnelle africaine. Comment puis-je vous aider aujourd'hui ? Vous pouvez me demander des informations sur les plantes médicinales, leurs utilisations ou leurs précautions."
+    },
+    {
+      "keywords": ["artemisia", "paludisme", "fièvre"],
+      "response": "L'Artemisia afra est excellente contre la fièvre et les troubles respiratoires. Elle contient de l'artémisinine, un composé antipaludique puissant. Préparez une infusion avec 1 cuillère à café de feuilles séchées dans 250ml d'eau chaude. ⚠️ Évitez pendant la grossesse."
+    },
+    {
+      "keywords": ["aloe", "brûlure", "cicatrisation", "peau"],
+      "response": "L'Aloe ferox est parfait pour les problèmes de peau ! Son gel cicatrisant et anti-inflammatoire traite efficacement brûlures, coupures et irritations. Appliquez le gel frais directement sur la zone affectée. ⚠️ Testez d'abord sur une petite zone pour éviter les réactions allergiques."
+    },
+    {
+      "keywords": ["baobab", "vitamine", "nutrition", "énergie"],
+      "response": "Le baobab est un super-aliment ! Sa pulpe contient 6 fois plus de vitamine C que l'orange et est riche en fibres, potassium et calcium. Mélangez 1-2 cuillères de poudre dans l'eau ou les smoothies pour un boost énergétique naturel. ✨ Parfait pour toute la famille !"
+    },
+    {
+      "keywords": ["kanna", "stress", "anxiété", "dépression"],
+      "response": "Kanna (Sceletium tortuosum) est traditionnellement utilisé contre l'anxiété et le stress par les peuples Khoi et San. Ses alcaloïdes naturels ont des effets relaxants. ⚠️ Important : consultez un médecin si vous prenez des antidépresseurs ou souffrez de dépression sévère."
+    },
+    {
+      "keywords": ["sutherlandia", "immunité", "cancer", "fatigue"],
+      "response": "Sutherlandia frutescens est surnommé 'plante miracle' pour ses propriétés adaptogènes. Il renforce le système immunitaire et aide contre la fatigue chronique. Préparez un thé avec les feuilles séchées (1-2 tasses/jour). Commencez par de petites doses pour évaluer votre tolérance."
+    },
+    {
+      "keywords": ["danger", "toxique", "risque", "précaution"],
+      "response": "La sécurité est primordiale ! Toujours : ✅ Identifier correctement la plante ✅ Respecter les dosages ✅ Consulter un professionnel de santé ✅ Éviter l'automédication pour les problèmes graves ⚠️ Certaines plantes interagissent avec les médicaments."
+    },
+    {
+      "keywords": ["grossesse", "enceinte", "bébé"],
+      "response": "Attention ! De nombreuses plantes sont déconseillées pendant la grossesse et l'allaitement. Artemisia, certaines préparations d'Aloe et Kanna sont à éviter. Consultez TOUJOURS votre médecin ou sage-femme avant d'utiliser des plantes médicinales pendant la grossesse. 👶"
+    },
+    {
+      "keywords": ["merci", "au revoir", "bye"],
+      "response": "Avec plaisir ! N'hésitez pas à revenir si vous avez d'autres questions sur la médecine traditionnelle africaine. Prenez soin de vous naturellement ! 🌿✨"
+    }
+  ],
+  "defaultResponse": "Je comprends votre question, mais je n'ai pas d'informations spécifiques à ce sujet dans ma base de connaissances actuelle. Pour des conseils personnalisés sur les plantes médicinales africaines, je vous recommande de consulter un phytothérapeute qualifié. Puis-je vous aider avec autre chose ?"
+}
